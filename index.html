@@ -4,10 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Balrog - Mozilla's Application Update server</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="author" content="Chris AtLee">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -40,6 +39,65 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+                <section>
+                    <h1>Balrog</h1>
+                    <h3>Mozilla's Application Update Server</h3>
+                    <img src="https://raw.githubusercontent.com/mozilla/balrog-ui/master/app/img/balrog.png" />
+                </section>
+
+                <section>
+                    <h2>What's Balrog?</h2>
+                    <p>
+                        Balrog is the code name for the latest generation of
+                        Mozilla's Application Update Server (AUS). It's also
+                        known as AUS4, being the 4th generation of the update
+                        server software.
+                    </p>
+                    <p>
+                        Balrog handles all update requests from Firefox
+                        (and Thunderbird!). Firefox periodically contacts
+                        Balrog to see if there's a newer version available.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>It's Open Source</h2>
+                    <h3>of course!</h3>
+                    <p><a href="https://github.com/mozilla/balrog">https://github.com/mozilla/balrog</a></p>
+                </section>
+
+                <section>
+                    <h2>Anatomy of an update request</h2>
+                    <p>
+                        The URL that Firefox contacts is controlled by the app.update.url pref:
+                        <pre><code data-trim>
+https://aus4.mozilla.org/update/3/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
+                        </code></pre>
+                    </p>
+                    <p>
+                        Firefox substitutes the %-enclosed variables at runtime, so the actual URL requested ends up being something like:
+                        <pre><code data-trim>
+https://aus4.mozilla.org/update/3/Firefox/37.0a1/20141218030202/Linux_x86_64-gcc3/en-US/nightly/Linux%203.9-1-amd64%20(GTK%202.24.25)/default/default/update.xml
+                        </code></pre>
+                    </p>
+                    <p>
+                        Balrog parses out each of these variables from the requested URL.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Anatomy of an update request</h2>
+                    <p>
+                        Balrog maps the incoming request to a target release using an ordered set of rules.
+                        These rules match variables from the incoming request.
+                        More specific rules (that specify and match more variables) take priority over less specific rules.
+                        TODO: screenshot of rules interface
+                        Generally you're first concerned with Product and Channel first.
+                    </p>
+                </section>
+
+
+
 				<section>
 					<h1>Reveal.js</h1>
 					<h3>The HTML Presentation Framework</h3>
