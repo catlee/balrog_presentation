@@ -54,9 +54,10 @@
                         server software.
                     </p>
                     <p>
-                        Balrog handles all update requests from Firefox
-                        (and Thunderbird!). Firefox periodically contacts
-                        Balrog to see if there's a newer version available.
+                        Balrog handles all update requests for Firefox, Thunderbird,
+                        Gecko Media Plugins, as well as some Fennec and FirefoxOS channels.
+                        Applications periodically contact Balrog to see if there's a
+                        newer version available.
                     </p>
                 </section>
 
@@ -69,7 +70,7 @@
                 <section>
                     <h2>Anatomy of an update request</h2>
                     <p>
-                        The URL that Firefox contacts is controlled by the app.update.url pref:
+                        The URL that Firefox contacts is hardcoded in the app.update.url pref:
                         <pre><code data-trim>
 https://aus4.mozilla.org/update/3/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
                         </code></pre>
@@ -89,8 +90,8 @@ https://aus4.mozilla.org/update/3/Firefox/37.0a1/20141218030202/Linux_x86_64-gcc
                     <h2>Anatomy of an update request</h2>
                     <p>
                         Balrog maps the incoming request to a target release using an ordered set of rules.
-                        These rules match variables from the incoming request.
-                        More specific rules (that specify and match more variables) take priority over less specific rules.
+                        These rules match variables from the incoming request, and point at a release.
+                        Rules are sorted by a manually set priority, and the highest priority matching rule wins.
                         TODO: screenshot of rules interface
                         Generally you're first concerned with Product and Channel first.
                     </p>
