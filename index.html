@@ -88,7 +88,7 @@
                     </section>
 
                     <section>
-                        <h2>Anatomy of an update request</h2>
+                        <h3>Anatomy of an update request</h3>
                         <p>
                             Balrog maps the incoming request to a target release using an ordered set of rules.
                             These rules match variables from the incoming request, and point at a release.
@@ -97,7 +97,7 @@
                         </p>
                     </section>
                     <section>
-                        <h2>Update rules</h2>
+                        <h3>Anatomy of an update request</h3>
                         <p>Looking at some update rules for "Firefox"</p>
                         <img src="img/rules-ss.png">
                         TODO: could use some explanation here!
@@ -106,7 +106,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h2>Update rules</h2>
+                        <h3>Anatomy of an update request</h3>
                         <p>There are currently 112 rules active in Balrog</p>
                         <ul>
                             <li>43 for Firefox</li>
@@ -116,7 +116,18 @@
                             <li>12 for GMP</li>
                         </ul>
                     </section>
+                    <section>
+                        <h3>Anatomy of an update request</h3>
+                        <p>In our example we match product="Firefox" and channel="nightly"</p>
+                        We can see the rule maps us to the "Firefox-mozilla-central-nightly-latest" blob.
+                        <img src="img/rules-nightly.png">
+                    </section>
                 </section>
+                <section>
+                    <h2>Release blobs</h2>
+                </section>
+
+
 			</div>
 
 		</div>
