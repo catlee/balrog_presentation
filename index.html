@@ -42,7 +42,7 @@
                 <section>
                     <h1>Balrog</h1>
                     <h3>Mozilla's Application Update Server</h3>
-                    <img src="https://raw.githubusercontent.com/mozilla/balrog-ui/master/app/img/balrog.png" />
+                    <img src="img/balrog.png" />
                 </section>
 
                 <section>
@@ -68,33 +68,54 @@
                 </section>
 
                 <section>
-                    <h2>Anatomy of an update request</h2>
-                    <p>
-                        The URL that Firefox contacts is hardcoded in the app.update.url pref:
-                        <pre><code data-trim>
-https://aus4.mozilla.org/update/3/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
-                        </code></pre>
-                    </p>
-                    <p>
-                        Firefox substitutes the %-enclosed variables at runtime, so the actual URL requested ends up being something like:
-                        <pre><code data-trim>
-https://aus4.mozilla.org/update/3/Firefox/37.0a1/20141218030202/Linux_x86_64-gcc3/en-US/nightly/Linux%203.9-1-amd64%20(GTK%202.24.25)/default/default/update.xml
-                        </code></pre>
-                    </p>
-                    <p>
-                        Balrog parses out each of these variables from the requested URL.
-                    </p>
-                </section>
+                    <section>
+                        <h2>Anatomy of an update request</h2>
+                        <p>
+                            The URL that Firefox contacts is hardcoded in the app.update.url pref:
+                            <pre><code data-trim>
+    https://aus4.mozilla.org/update/3/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
+                            </code></pre>
+                        </p>
+                        <p>
+                            Firefox substitutes the %-enclosed variables at runtime, so the actual URL requested ends up being something like:
+                            <pre><code data-trim>
+    https://aus4.mozilla.org/update/3/Firefox/37.0a1/20141218030202/Linux_x86_64-gcc3/en-US/nightly/Linux%203.9-1-amd64%20(GTK%202.24.25)/default/default/update.xml
+                            </code></pre>
+                        </p>
+                        <p>
+                            Balrog parses out each of these variables from the requested URL.
+                        </p>
+                    </section>
 
-                <section>
-                    <h2>Anatomy of an update request</h2>
-                    <p>
-                        Balrog maps the incoming request to a target release using an ordered set of rules.
-                        These rules match variables from the incoming request, and point at a release.
-                        Rules are sorted by a manually set priority, and the highest priority matching rule wins.
-                        TODO: screenshot of rules interface
-                        Generally you're first concerned with Product and Channel first.
-                    </p>
+                    <section>
+                        <h2>Anatomy of an update request</h2>
+                        <p>
+                            Balrog maps the incoming request to a target release using an ordered set of rules.
+                            These rules match variables from the incoming request, and point at a release.
+                            Rules are sorted by a manually set priority, and the highest priority matching rule wins.
+                            Generally you're first concerned with Product and Channel first.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Update rules</h2>
+                        <p>Looking at some update rules for "Firefox"</p>
+                        <img src="img/rules-ss.png">
+                        TODO: could use some explanation here!
+                        <aside class="notes">
+                            Highlight some of the main fields, e.g. the rate, priority, locale, versions.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Update rules</h2>
+                        <p>There are currently 112 rules active in Balrog</p>
+                        <ul>
+                            <li>43 for Firefox</li>
+                            <li>18 for Fennec</li>
+                            <li>15 for Thunderbird</li>
+                            <li>14 for B2G</li>
+                            <li>12 for GMP</li>
+                        </ul>
+                    </section>
                 </section>
 
 
