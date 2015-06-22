@@ -89,15 +89,17 @@
 
                     <section>
                         <h3>Anatomy of an update request</h3>
-                        <p>Balrog responds to requests with a small XML response that contains the location of the update MAR and a bunch of metadata about it, eg:</p>
+                        <p>Balrog responds to requests with a small XML response that contains the location of the update MAR and a bunch of metadata about it, e.g.:</p>
 
                         <pre>
 &lt;updates&gt;
     &lt;update type="minor" displayVersion="41.0a1" appVersion="41.0a1"
             platformVersion="41.0a1" buildID="20150618030206"&gt;
-        &lt;patch type="complete" URL="http://download.cdn.mozilla.net/pub/mozilla.org/firefox/nightly/2015/06/2015-06-18-03-02-06-mozilla-central/firefox-41.0a1.en-US.linux-x86_64.complete.mar"
-               hashFunction="sha512" hashValue="097d745696759cba29f85cb6df02f00476dc8189526e18cb9efaa70614631ef19c72014fffd3f1785d2ca9d0d1eeef22671a28a3069554c9a1581e240e743031"
-               size="56155786"/&gt;
+        &lt;patch type="complete"
+            URL="http://download.cdn.mozilla.net/pub/mozilla.org/firefox/nightly/2015/06/2015-06-18-03-02-06-mozilla-central/firefox-41.0a1.en-US.linux-x86_64.complete.mar"
+            hashFunction="sha512"
+            hashValue="097d745696759cba29f85cb6df02f00476dc8189526e18cb9efaa70614631ef19c72014fffd3f1785d2ca9d0d1eeef22671a28a3069554c9a1581e240e743031"
+            size="56155786"/&gt;
     &lt;/update&gt;
 &lt;/updates&gt;
                         </pre>
@@ -143,7 +145,7 @@
                     <section>
                         <h3>Release blobs</h3>
                         <p>
-                            The releases that rules point at are JSON data structure (commonly referred to as "blobs")
+                            The releases that rules point at are JSON data structures (commonly referred to as "blobs")
                             and contain the metadata that the XML is built from.
                         </p>
                         <p>
