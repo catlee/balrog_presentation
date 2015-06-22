@@ -89,6 +89,22 @@
 
                     <section>
                         <h3>Anatomy of an update request</h3>
+                        <p>Balrog responds to requests with a small XML response that contains the location of the update MAR and a bunch of metadata about it, eg:</p>
+
+                        <pre>
+&lt;updates&gt;
+    &lt;update type="minor" displayVersion="41.0a1" appVersion="41.0a1"
+            platformVersion="41.0a1" buildID="20150618030206"&gt;
+        &lt;patch type="complete" URL="http://download.cdn.mozilla.net/pub/mozilla.org/firefox/nightly/2015/06/2015-06-18-03-02-06-mozilla-central/firefox-41.0a1.en-US.linux-x86_64.complete.mar"
+               hashFunction="sha512" hashValue="097d745696759cba29f85cb6df02f00476dc8189526e18cb9efaa70614631ef19c72014fffd3f1785d2ca9d0d1eeef22671a28a3069554c9a1581e240e743031"
+               size="56155786"/&gt;
+    &lt;/update&gt;
+&lt;/updates&gt;
+                        </pre>
+                    </section>
+
+                    <section>
+                        <h3>Anatomy of an update request</h3>
                         <p>
                             Balrog maps the incoming request to a target release using an ordered set of rules.
                             These rules match variables from the incoming request, and point at a release.
@@ -124,7 +140,54 @@
                     </section>
                 </section>
                 <section>
-                    <h2>Release blobs</h2>
+                    <section>
+                        <h3>Release blobs</h3>
+                        <p>
+                            The releases that rules point at are JSON data structure (commonly referred to as "blobs")
+                            and contain the metadata that the XML is built from.
+                        </p>
+                        <p>
+                            Blobs normally contain all of the data for one "release" across all platforms and locales.
+                            Eg: "Firefox-mozilla-central-nightly-20150608030201" has Firefox Nightly metadata from June 8.
+                            "Firefox-39.0b5-build1" has metadata from a recent Firefox Beta.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Release blobs</h3>
+                        <pre>
+{
+  "hashFunction": "sha512",
+  "platforms": {
+    "WINNT_x86_64-msvc": {
+      "locales": {
+        "en-US": {
+          "buildID": "20150608030201",
+          "appVersion": "41.0a1",
+          "platformVersion": "41.0a1",
+          "partials": [
+            {
+              "fileUrl": "http://download.cdn.mozilla.net/pub/mozilla.org/firefox/nightly/2015/06/2015-06-08-03-02-01-mozilla-central/firefox-41.0a1.en-US.win64.partial.20150607030217-20150608030201.mar",
+              "from": "Firefox-mozilla-central-nightly-20150607030217",
+              "hashValue": "0d0dfc7cb5c6524f59662007285545ac0d4af0bb388c7cc06f691399796769ffc3a95c62f134df8803726cc6b3415e519186fc0b64e8ca60aaca5118652629ff",
+              "filesize": 7047272
+            }
+          ],
+          "displayVersion": "41.0a1",
+          "completes": [
+            {
+              "fileUrl": "http://download.cdn.mozilla.net/pub/mozilla.org/firefox/nightly/2015/06/2015-06-08-03-02-01-mozilla-central/firefox-41.0a1.en-US.win64.complete.mar",
+              "from": "*",
+              "hashValue": "f392b260f250ad02728d12d8042424ed576edc263ccd891fd43b95f65ee7fbdd0205725f0f2fb6ff69ac2ce5c12aba2e2f627f4dfe49e15d4d2780fa2fffee41",
+              "filesize": 53419352
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+                        </pre>
+                    </section>
                 </section>
 
 
