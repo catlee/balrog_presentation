@@ -56,7 +56,9 @@
                     <p>
                         Balrog handles all update requests for Firefox, Thunderbird,
                         Gecko Media Plugins, as well as some Fennec and FirefoxOS channels.
-                        Applications periodically contact Balrog to see if there's a
+                    </p>
+                    <p>
+                        Applications periodically poll Balrog to see if there's a
                         newer version available.
                     </p>
                 </section>
@@ -161,12 +163,12 @@
                     </section>
                     <section>
                         <h3>OS Deprecation</h3>
-                        <p>We don't support all the old OS' that we used to, and we make sure we don't offer users on eg, Windows 98, updates to the latest Firefox. We haven't deprecated an OS in a long time, so we simply serve no update to any OS we've desupported:</p>
+                        <p>We don't support all the old OSes that we used to, and we make sure we don't offer users on Windows 98, for example, updates to the latest Firefox. We haven't deprecated an OS in a long time, so we simply serve no update to any OS we've desupported:</p>
                         <img src="img/rules-os-blocking.png">
                     </section>
                     <section>
                         <h3>Watersheds</h3>
-                        <p>At some points in time the update format changed, and clients on older versions can't apply the latest updates with their current tools. These users must be routed through "watershed" releases that are served as an older style update that contains newer versions of the update tools:</p>
+                        <p>At some points in time the update format changed, and clients on older versions can't properly request or apply more recent updates with their current tools. These users must be routed through "watershed" releases that are served as an older style update that contains newer versions of the update tools:</p>
                         <img src="img/rules-watershed.png">
                     </section>
                     <section>
