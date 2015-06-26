@@ -109,8 +109,11 @@
                         </pre>
                     </section>
 
+                </section>
+                <section>
+
                     <section>
-                        <h3>Anatomy of an update request</h3>
+                        <h3>Rules</h3>
                         <p>
                             Balrog maps the incoming request to a target release using an ordered set of rules.
                             These rules match variables from the incoming request, and point at a release.
@@ -119,7 +122,7 @@
                         </p>
                     </section>
                     <section>
-                        <h3>Anatomy of an update request</h3>
+                        <h3>Rules</h3>
                         <p>Looking at some update rules for "Firefox"</p>
                         <img src="img/rules-ss.png">
                         TODO: could use some explanation here!
@@ -128,7 +131,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3>Anatomy of an update request</h3>
+                        <h3>Rules</h3>
                         <p>There are currently 112 rules active in Balrog</p>
                         <ul>
                             <li>43 for Firefox</li>
@@ -139,10 +142,15 @@
                         </ul>
                     </section>
                     <section>
-                        <h3>Anatomy of an update request</h3>
-                        <p>In our example we match product="Firefox" and channel="nightly"</p>
+                        <h3>Rules</h3>
+                        <p>The simplest example of how rules work is for Firefox Nightly. In our example we match product="Firefox" and channel="nightly"</p>
                         We can see the rule maps us to the "Firefox-mozilla-central-nightly-latest" blob.
                         <img src="img/rules-nightly.png">
+                    </section>
+
+                    <section>
+                        <h3>Rules</h3>
+                        <p>Some channels (such as "release") have more complicated sets of rules. Here's a more complicated example that includes all of the rules that apply to the Firefox release channel:</p>
                     </section>
                 </section>
                 <section>
