@@ -255,52 +255,85 @@
                     </section>
                 </section>
                 <section>
-                    <h2>Partial Updates</h2>
-                    <p>
-                        A partial update is a collection of binary diffs, while
-                        a complete update contains a full copy of all the files.
-                    </p>
-                    <p>
-                        Example sizes for Firefox 39.0 (in MB).
-                        <table>
-                          <thead>
-                            <tr>
-                              <th>Update</th>
-                              <th>Windows</th>
-                              <th>Mac</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Partial from 38.0.5</td>
-                              <td>16 (33%)</td>
-                              <td>21 (30%)</td>
-                            </tr>
-                            <tr>
-                              <td>Partial from 37.0.2</td>
-                              <td>20 (42%)</td>
-                              <td>30 (42%)</td>
-                            </tr>
-                            <tr>
-                              <td>Partial from 34.0.5</td>
-                              <td>34 (71%)</td>
-                              <td>42 (59%)</td>
-                            </tr>
-                            <tr>
-                              <td>Complete</td>
-                              <td>48</td>
-                              <td>71</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                    </p>
-                    <p class="fragment">Stay tuned for more about partials &amp; funsize!</p>
-                    <aside class="notes">
-                        partial is patching, complete is a paveover
-                        Minimum partial size due to files like omni.ja
-                        Diminishing returns as you go to older versions vs
-                        computation time to generate
-                    </aside>
+                    <section>
+                        <h2>Partial Updates</h2>
+                        <p>
+			    A partial update is a collection of binary diffs, while
+			    a complete update contains a full copy of all the files.
+                        </p>
+                        <p>
+			    Example sizes for Firefox 39.0 (in MB).
+			    <table>
+                                <thead>
+                                    <tr>
+					<th>Update</th>
+					<th>Windows</th>
+					<th>Mac</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+				    <tr>
+					<td>Partial from 38.0.5</td>
+					<td>16 (33%)</td>
+					<td>21 (30%)</td>
+	                            </tr>
+	                            <tr>
+					<td>Partial from 37.0.2</td>
+					<td>20 (42%)</td>
+					<td>30 (42%)</td>
+				    </tr>
+				    <tr>
+					<td>Partial from 34.0.5</td>
+					<td>34 (71%)</td>
+					<td>42 (59%)</td>
+	                            </tr>
+	                            <tr>
+					<td>Complete</td>
+					<td>48</td>
+					<td>71</td>
+	                            </tr>
+	                        </tbody>
+			    </table>
+			</p>
+			<aside class="notes">
+			    partial is patching, complete is a paveover
+			    Minimum partial size due to files like omni.ja
+			    Diminishing returns as you go to older versions vs
+			    computation time to generate
+			</aside>
+                    </section>
+
+                    <section>
+                        <h2>How do we serve partials ?</h2>
+			<pre>
+"platforms": {
+    "WINNT_x86-msvc": {
+      "OS_FTP": "win32",
+      "locales": {
+        "zh-TW": {
+          "buildID": "20150624153222",
+          "appVersion": "39.0",
+          "displayVersion": "39.0",
+          "partials": [
+            {
+              "hashValue": "51ce381e020763ea1218afd9493f739a8e8e50ce1cdacd27acdf9f05e897f0745594ac662f9dc36b4af2ac8f046544cccda5cccdd431922df41475f418b18821",
+              "from": "Firefox-37.0.2-build1",
+              "filesize": 21076623
+            },
+           ...
+          "completes": [
+            {
+              "hashValue": "03675ebbfa9b6c57a369cb814f075970c26abf91a9e2287c15195712aa1efbcca5e94a91aabaf1e0d23cd38743958af96ec41b8edadefca469e13003917f041f",
+              "from": "*",
+              "filesize": 49941054
+            }
+          ]
+			</pre>
+                    </section>
+
+                    <section>
+			<p>Stay tuned for more about partials &amp; funsize!</p>
+                    </section>
                 </section>
                 <section>
                     <h1>Questions?</h1>
