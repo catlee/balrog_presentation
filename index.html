@@ -172,9 +172,30 @@
                         <img src="img/rules-watershed.png">
                     </section>
                     <section>
-                        <h3>Whats new pages</h3>
+                        <h3>What's new pages</h3>
                         <p>Sometimes we need to serve some users an update that points them at a "whats new" page, generally for marketing purposes:</p>
                         <img src="img/rules-whatsnew.png">
+                    </section>
+                    <section>
+                        <h3>What's new pages</h3>
+                        <p>Updates with what's new pages have some extra information in the XML response:</p>
+                        <pre>
+&lt;updates&gt;
+    &lt;update type="minor" displayVersion="41.0a1" appVersion="41.0a1"
+            platformVersion="41.0a1" buildID="20150618030206" actions="showURL"
+            openURL="https://www.mozilla.org/en-US/firefox/38.0.5/whatsnew/?oldversion=%OLD_VERSION%"&gt;
+        &lt;patch type="complete"
+            URL="http://download.cdn.mozilla.net/pub/mozilla.org/firefox/nightly/2015/06/2015-06-18-03-02-06-mozilla-central/firefox-41.0a1.en-US.linux-x86_64.complete.mar"
+            hashFunction="sha512"
+            hashValue="097d745696759cba29f85cb6df02f00476dc8189526e18cb9efaa70614631ef19c72014fffd3f1785d2ca9d0d1eeef22671a28a3069554c9a1581e240e743031"
+            size="56155786"/&gt;
+    &lt;/update&gt;
+&lt;/updates&gt;
+                        </pre>
+                    </section>
+                    <section>
+                        <h3>And show pretty pages like this after Firefox restarts for the update:</h3>
+                        <img src="img/wnp.png">
                     </section>
                     <section>
                         <h3>"Regular" updates</h3>
