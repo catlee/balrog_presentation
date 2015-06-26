@@ -125,9 +125,13 @@
                         <h3>Rules</h3>
                         <p>Looking at some update rules for "Firefox"</p>
                         <img src="img/rules-ss.png">
-                        TODO: could use some explanation here!
                         <aside class="notes">
-                            Highlight some of the main fields, e.g. the rate, priority, locale, versions.
+                            Rate controls what % of requests get this release
+                            vs. an empty response. Keep in mind that responses
+                            can be cached!
+
+                            Priority enforces an ordering on the rules that
+                            match common fields
                         </aside>
                     </section>
                     <section>
@@ -203,8 +207,18 @@
                         </pre>
                     </section>
                 </section>
-
-
+                <section>
+                    <h2>Perma rules</h2>
+                    <section>
+                        <h3>OS blocking</h3>
+                    </section>
+                    <section>
+                        <h3>Watersheds</h3>
+                    </section>
+                </section>
+                <section>
+                    <h2>Partial Updates</h2>
+                </section>
 			</div>
 
 		</div>
@@ -237,5 +251,19 @@
 
 		</script>
 
+        <div class="footer">
+            Mozilla Release Engineering<br/>
+            June 26, 2015 Whister, British Columbia, Canada (eh!)<br/>
+        </div>
+        <style type="text/css">
+            .footer {
+                position: absolute;
+                bottom: 16px;
+                left: 0px;
+                color: #fff;
+                font-family: 'Source Sans Pro', Helvetica, sans-serif;
+                font-size: 19px;
+            }
+        </style>
 	</body>
 </html>
