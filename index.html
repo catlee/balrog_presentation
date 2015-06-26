@@ -49,9 +49,9 @@
                     <h2>What's Balrog?</h2>
                     <p>
                         Balrog is the code name for the latest generation of
-                        Mozilla's Application Update Server (AUS). It's also
-                        known as AUS4, being the 4th generation of the update
-                        server software.
+                        Mozilla's Application Update Server (AUS). It's the first
+                        rewrite since 2006, and went into production in January
+                        2015.
                     </p>
                     <p>
                         Balrog handles all update requests for Firefox, Thunderbird,
@@ -73,13 +73,17 @@
                         <p>
                             The URL that Firefox contacts is hardcoded in the app.update.url pref:
                             <pre><code data-trim>
-    https://aus4.mozilla.org/update/3/%PRODUCT%/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
+    https://aus4.mozilla.org/update/3/%PRODUCT%/%VERSION%/%BUILD_ID%/...
+      %BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/...
+      %DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
                             </code></pre>
                         </p>
                         <p>
                             Firefox substitutes the %-enclosed variables at runtime, so the actual URL requested ends up being something like:
                             <pre><code data-trim>
-    https://aus4.mozilla.org/update/3/Firefox/37.0a1/20141218030202/Linux_x86_64-gcc3/en-US/nightly/Linux%203.9-1-amd64%20(GTK%202.24.25)/default/default/update.xml
+    https://aus4.mozilla.org/update/3/Firefox/37.0a1/20141218030202/...
+      Linux_x86_64-gcc3/en-US/nightly/Linux%203.9-1-amd64%20(GTK%202.24.25)/...
+      default/default/update.xml
                             </code></pre>
                         </p>
                         <p>
