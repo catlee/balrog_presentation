@@ -109,8 +109,11 @@
                         </pre>
                     </section>
 
+                </section>
+                <section>
+
                     <section>
-                        <h3>Anatomy of an update request</h3>
+                        <h3>Rules</h3>
                         <p>
                             Balrog maps the incoming request to a target release using an ordered set of rules.
                             These rules match variables from the incoming request, and point at a release.
@@ -119,7 +122,7 @@
                         </p>
                     </section>
                     <section>
-                        <h3>Anatomy of an update request</h3>
+                        <h3>Rules</h3>
                         <p>Looking at some update rules for "Firefox"</p>
                         <img src="img/rules-ss.png">
                         <aside class="notes">
@@ -132,7 +135,7 @@
                         </aside>
                     </section>
                     <section>
-                        <h3>Anatomy of an update request</h3>
+                        <h3>Rules</h3>
                         <p>There are currently 112 rules active in Balrog</p>
                         <ul>
                             <li>43 for Firefox</li>
@@ -143,12 +146,41 @@
                         </ul>
                     </section>
                     <section>
-                        <h3>Anatomy of an update request</h3>
-                        <p>In our example we match product="Firefox" and channel="nightly"</p>
+                        <h3>Rules</h3>
+                        <p>The simplest example of how rules work is for Firefox Nightly. In our example we match product="Firefox" and channel="nightly"</p>
                         We can see the rule maps us to the "Firefox-mozilla-central-nightly-latest" blob.
                         <img src="img/rules-nightly.png">
                     </section>
+
                 </section>
+
+                <section>
+                    <section>
+                        <h2>Real world rules</h2>
+                        <p>Most channels have more complicated sets of rules. They have to deal with OS deprecation and other special situations. Let's take a look at all of the rules that are considered for the Firefox release channel.</p>
+                    </section>
+                    <section>
+                        <h3>OS Deprecation</h3>
+                        <p>We don't support all the old OS' that we used to, and we make sure we don't offer users on eg, Windows 98, updates to the latest Firefox. We haven't deprecated an OS in a long time, so we simply serve no update to any OS we've desupported:</p>
+                        <img src="img/rules-os-blocking.png">
+                    </section>
+                    <section>
+                        <h3>Watersheds</h3>
+                        <p>At some points in time the update format changed, and clients on older versions can't apply the latest updates with their current tools. These users must be routed through "watershed" releases that are served as an older style update that contains newer versions of the update tools:</p>
+                        <img src="img/rules-watershed.png">
+                    </section>
+                    <section>
+                        <h3>Whats new pages</h3>
+                        <p>Sometimes we need to serve some users an update that points them at a "whats new" page, generally for marketing purposes:</p>
+                        <img src="img/rules-whatsnew.png">
+                    </section>
+                    <section>
+                        <h3>"Regular" updates</h3>
+                        <p>And if you don't fall into any of the special cases above, you simply get served the plain, boring, release:</p>
+                        <img src="img/rules-basic.png">
+                    </section>
+                </section>
+
                 <section>
                     <section>
                         <h3>Release blobs</h3>
@@ -197,15 +229,6 @@
   }
 }
                         </pre>
-                    </section>
-                </section>
-                <section>
-                    <h2>Perma rules</h2>
-                    <section>
-                        <h3>OS blocking</h3>
-                    </section>
-                    <section>
-                        <h3>Watersheds</h3>
                     </section>
                 </section>
                 <section>
