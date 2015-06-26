@@ -233,6 +233,49 @@
                 </section>
                 <section>
                     <h2>Partial Updates</h2>
+                    <p>
+                        A partial update is a collection of binary diffs, while
+                        a complete update contains a full copy of all the files.
+                    </p>
+                    <p>
+                        Example sizes for Firefox 39.0, in MB.
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Update</th>
+                              <th>Windows</th>
+                              <th>Mac</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Partial from 38.0.5</td>
+                              <td>16 (33%)</td>
+                              <td>21 (29%)</td>
+                            </tr>
+                            <tr>
+                              <td>Partial from 37.0.2</td>
+                              <td>20 (42%)</td>
+                              <td>30 (42%)</td>
+                            </tr>
+                            <tr>
+                              <td>Partial from 34.0.5</td>
+                              <td>34 (67%)</td>
+                              <td>42 (59%)</td>
+                            </tr>
+                            <tr>
+                              <td>Complete</td>
+                              <td>48</td>
+                              <td>71</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </p>
+                <aside class="notes">
+                    partial is patching, complete is a paveover
+                    Minimum partial size due to files like omni.ja
+                    Diminishing returns as you go to older versions vs
+                    computation time to generate
                 </section>
 			</div>
 
